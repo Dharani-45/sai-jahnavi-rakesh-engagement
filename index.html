@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="theme-color" content="#fbf4eb">
+<title>Sai Jahnavi & Rakesh — Engagement</title>
+<style>
+:root{--paper:#fbf4eb;--ink:#49352e;--wine:#783f4d;--rose:#c77f87;--sage:#77836c;--gold:#b99a62;--line:#d8c29c}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{margin:0;background:radial-gradient(ellipse at top,#fffaf4 0%,#f7ebdf 70%,#f0dfd3 100%);color:var(--ink);font-family:Georgia,'Times New Roman',serif;overflow-x:hidden}
+.petal-layer{position:fixed;inset:0;overflow:hidden;pointer-events:none;z-index:4}
+.petal{position:absolute;top:-8vh;width:13px;height:19px;background:linear-gradient(135deg,#f7cbd0,#b75c70);border-radius:90% 12% 85% 15%;opacity:.65;animation:drift linear infinite}
+@keyframes drift{0%{transform:translate3d(0,-10vh,0) rotate(0)}50%{transform:translate3d(34px,50vh,0) rotate(220deg)}100%{transform:translate3d(-24px,112vh,0) rotate(510deg)}}
+.intro{position:fixed;inset:0;z-index:10;display:grid;place-items:center;padding:22px;background:linear-gradient(145deg,#fff9f2,#f0dce0);transition:opacity .9s,visibility .9s}
+.intro.dismissed{opacity:0;visibility:hidden}
+.intro-card{width:min(100%,440px);text-align:center;padding:40px 26px 34px;background:#fffaf4ed;border:1px solid var(--gold);outline:1px solid #c7a878;outline-offset:6px;box-shadow:0 25px 70px #593a3018;position:relative}
+.mini-top{font:10px/1.8 Arial,sans-serif;text-transform:uppercase;letter-spacing:.27em;color:var(--sage)}
+.intro-card .floral{font-size:27px;color:var(--gold);margin:17px 0}
+.intro-card h1{font-size:clamp(35px,9vw,49px);line-height:1.08;font-weight:normal;color:var(--wine);margin:12px 0}
+.script{font-family:'Segoe Script','Brush Script MT','URW Chancery L',cursive;font-weight:normal;font-style:italic;letter-spacing:-.035em}
+.intro-card p{font-size:15px;line-height:1.8}
+button,.button{border:0;border-radius:2px;padding:14px 22px;background:var(--wine);color:#fff8ef;font:11px Arial,sans-serif;text-transform:uppercase;letter-spacing:.17em;cursor:pointer;text-decoration:none;display:inline-block}
+button:hover,.button:hover{background:#5f303d}
+.page{width:min(100% - 24px,790px);margin:24px auto 0}
+.invite{position:relative;text-align:center;overflow:hidden;background:rgba(255,250,243,.84);border:1px solid var(--line);padding:clamp(28px,7vw,66px) clamp(16px,6vw,62px) 38px;box-shadow:0 22px 70px #60433212}
+.invite:before{content:"";position:absolute;inset:8px;border:1px solid #e6d5b9;pointer-events:none}
+.corner{position:absolute;color:var(--gold);font-size:44px;line-height:1;opacity:.72;z-index:1}
+.tl{top:14px;left:16px}.tr{top:14px;right:16px;transform:scaleX(-1)}.bl{bottom:14px;left:16px;transform:scaleY(-1)}.br{bottom:14px;right:16px;transform:scale(-1)}
+.top-label{font:10px/1.9 Arial,sans-serif;text-transform:uppercase;letter-spacing:.24em;color:var(--sage);position:relative;z-index:1}
+.temple-mark{width:92px;height:55px;margin:13px auto 3px;color:var(--gold)}
+.temple-mark svg{width:100%;height:100%}
+.jasmine{font-size:23px;letter-spacing:.32em;color:var(--sage);margin:8px 0 17px}
+.intro-line{font-size:clamp(14px,3.7vw,18px);line-height:1.8;margin:0 auto;max-width:440px}
+.names{font-size:clamp(44px,10vw,76px);line-height:1.02;color:var(--wine);margin:20px 0 8px;font-weight:normal}
+.amp{display:block;color:var(--gold);font-size:.46em;line-height:1.3;font-family:Georgia,serif;font-style:italic}
+.engagement{font:10px/1.8 Arial,sans-serif;text-transform:uppercase;letter-spacing:.29em;color:var(--sage);margin:22px 0 18px}
+.ornament{display:flex;align-items:center;justify-content:center;gap:12px;margin:24px auto;color:var(--gold)}
+.ornament:before,.ornament:after{content:"";height:1px;width:min(23vw,105px);background:var(--line)}
+.ornament span{font-size:18px}
+.event-date{font-size:clamp(19px,4.6vw,26px);color:var(--wine);line-height:1.5}
+.time{font-size:16px;margin-top:5px}
+.details{margin:27px auto 22px;line-height:1.8;font-size:17px}
+.detail-label{font:10px/2 Arial,sans-serif;text-transform:uppercase;letter-spacing:.25em;color:var(--sage)}
+.venue{font-size:clamp(19px,4.5vw,24px);color:var(--wine);margin-top:2px}
+.city{font-size:15px}
+.blessing{max-width:450px;margin:25px auto 0;font-size:16px;line-height:1.9;font-style:italic}
+.actions{display:flex;flex-wrap:wrap;justify-content:center;gap:10px;margin:24px 0 8px;position:relative;z-index:2}
+.actions .button.secondary{background:transparent;border:1px solid var(--gold);color:var(--wine)}
+.note{font:11px/1.7 Arial,sans-serif;color:#927b70;margin:14px auto 0;max-width:400px}
+footer{text-align:center;padding:23px 12px 30px;font:10px/1.8 Arial,sans-serif;letter-spacing:.2em;color:#927b70}
+@media(max-width:420px){.invite{padding-left:17px;padding-right:17px}.corner{font-size:33px}.names{font-size:43px}}
+@media(prefers-reduced-motion:reduce){*,*::before,*::after{animation-duration:.01ms!important;animation-iteration-count:1!important;scroll-behavior:auto!important;transition-duration:.01ms!important}}
+</style>
+</head>
+<body>
+<div class="petal-layer" id="petals" aria-hidden="true"></div>
+<section class="intro" id="intro">
+  <div class="intro-card">
+    <div class="mini-top">A joyful new beginning</div>
+    <div class="floral">❦ ❀ ❦</div>
+    <h1><span class="script">Sai Jahnavi</span><br><span style="color:var(--gold);font-size:.58em">&amp;</span><br><span class="script">Rakesh</span></h1>
+    <p>With love in our hearts, we invite you<br>to celebrate our engagement.</p>
+    <button id="openBtn">Open the invitation ✧</button>
+  </div>
+</section>
+<main class="page">
+<article class="invite">
+  <span class="corner tl" aria-hidden="true">❧</span><span class="corner tr" aria-hidden="true">❧</span>
+  <span class="corner bl" aria-hidden="true">❧</span><span class="corner br" aria-hidden="true">❧</span>
+  <div class="top-label">With the blessings of our families</div>
+  <div class="temple-mark" aria-hidden="true">
+    <svg viewBox="0 0 120 70" fill="none" stroke="currentColor" stroke-width="1.4">
+      <path d="M13 61H107M21 55H99M29 49H91M36 43H84M43 37H77M50 31H70M60 8V3M55 13L60 3L65 13M47 22L60 13L73 22M39 31L60 22L81 31M31 43L60 31L89 43"/>
+      <path d="M44 61V47Q60 31 76 47V61M53 61V49Q60 42 67 49V61"/>
+      <circle cx="60" cy="19" r="2.5" fill="currentColor"/>
+    </svg>
+  </div>
+  <div class="jasmine">✿ ❀ ✿</div>
+  <p class="intro-line">Request the pleasure of your presence<br>as they begin a beautiful journey together</p>
+  <h2 class="names"><span class="script">Sai Jahnavi</span><span class="amp">&amp;</span><span class="script">Rakesh</span></h2>
+  <div class="engagement">Engagement Ceremony</div>
+  <div class="ornament"><span>❦</span></div>
+  <div class="event-date">Wednesday · 14 October 2026</div>
+  <div class="time">10:00 AM onwards</div>
+  <div class="details">
+    <div class="detail-label">The venue</div>
+    <div class="venue">Sri Lakshmi Narayana Hall</div>
+    <div class="city">Ayyanapeta, Vizianagaram</div>
+  </div>
+  <div class="ornament"><span>✧</span></div>
+  <p class="blessing">Your presence and blessings will make this special day even more memorable.</p>
+  <div class="actions">
+    <a class="button secondary" href="https://www.google.com/maps/search/?api=1&query=Sri+Lakshmi+Narayana+Hall%2C+Ayyanapeta%2C+Vizianagaram" target="_blank" rel="noopener noreferrer">Find the venue ↗</a>
+    <button id="musicBtn" type="button" aria-pressed="false">♫ Play music</button>
+  </div>
+</article>
+<footer>MADE WITH LOVE · SHARED WITH JOY</footer>
+</main>
+<audio id="music" loop preload="none"><source src="music.mp3" type="audio/mpeg"></audio>
+<script>
+const petals=document.getElementById('petals');
+for(let i=0;i<25;i++){const p=document.createElement('span');p.className='petal';p.style.left=Math.random()*100+'%';p.style.animationDuration=(9+Math.random()*11)+'s';p.style.animationDelay=(-Math.random()*18)+'s';p.style.opacity=(.25+Math.random()*.48).toFixed(2);p.style.scale=(.6+Math.random()*.8).toFixed(2);petals.appendChild(p)}
+document.getElementById('openBtn').addEventListener('click',()=>{document.getElementById('intro').classList.add('dismissed')});
+
+const music=document.getElementById('music'),btn=document.getElementById('musicBtn');
+btn.addEventListener('click',async()=>{
+  if(music.paused){
+    try{
+      await music.play();
+      btn.textContent='Ⅱ Pause music';
+      btn.setAttribute('aria-pressed','true');
+    }catch(e){
+      btn.textContent='♫ Play music';
+      btn.setAttribute('aria-pressed','false');
+    }
+  }else{
+    music.pause();
+    btn.textContent='♫ Play music';
+    btn.setAttribute('aria-pressed','false');
+  }
+});
+</script>
+</body>
+</html>
